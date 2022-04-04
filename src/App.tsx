@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+import { CounterProvider } from "./state/Counter";
+import { Counter } from "./components/Counter";
+import { CounterB } from "./components/CounterB";
 import './App.css';
+import { RecoilRoot } from "recoil";
+import {ToggleA} from "./components/ToggleA";
+import {ToggleB} from "./components/ToggleB";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <RecoilRoot>
+            A:<ToggleA/>
+            B:<ToggleB/>
+        </RecoilRoot>
+        <div>
+            あは
+        </div>
+        <CounterProvider>
+            A:<Counter/>
+            B: <CounterB/>
+        </CounterProvider>
     </div>
   );
 }
